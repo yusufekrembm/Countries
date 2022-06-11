@@ -44,11 +44,11 @@ class CountryFragment : Fragment() {
     private fun observeLiveData(){
         viewModel.countryLiveData.observe(viewLifecycleOwner, Observer {country->
             country?.let {
-                countryName.text = country.countryName
-                countryCapital.text = country.countryCapital
-                countryCurrency.text = country.countryCurrency
-                countryLanguage.text = country.countryLanguage
-                countryRegion.text = country.countryRegion
+                countryName.text = country.name
+                countryCapital.text = country.capital
+                countryCurrency.text = country.currency
+                countryLanguage.text = country.language
+                countryRegion.text = country.region
             }
         })
     }

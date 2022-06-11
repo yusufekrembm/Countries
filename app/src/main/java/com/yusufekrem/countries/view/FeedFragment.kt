@@ -1,5 +1,6 @@
 package com.yusufekrem.countries.view
 
+import android.opengl.Visibility
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -48,6 +49,16 @@ class FeedFragment : Fragment() {
             Navigation.findNavController(it).navigate(action)
         }
         */
+
+        // Refresh Layout
+        swipeRefreshLayout.setOnRefreshListener {
+            countryList.visibility = View.GONE
+            countryError.visibility = View.GONE
+            countryLoading.visibility = View.VISIBLE
+
+            viewModel.refreshData()
+            swipeRefreshLayout.isRefreshing = false
+        }
 
         observeLiveData()
 

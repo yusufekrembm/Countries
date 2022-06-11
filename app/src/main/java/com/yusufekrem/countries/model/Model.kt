@@ -1,12 +1,19 @@
 package com.yusufekrem.countries.model
 
-import java.util.*
+import com.google.gson.annotations.SerializedName
+
 
 data class Country(
-    val countryName: String?,
-    val countryRegion: String?,
-    val countryCapital: String?,
-    val countryCurrency: String?,
-    val countryLanguage: String?,
-    val imageUrl: String?
-)
+        @SerializedName("capital")
+        val capital: String?,
+        @SerializedName("currency")
+        val currency: String?,
+        @SerializedName("flag")
+        val imageUrl: String?,
+        @SerializedName("language")
+        val language: String?,
+        @SerializedName("name")
+        val name: String?,
+        @SerializedName("region")
+        val region: String?
+        )
