@@ -32,7 +32,9 @@ class CountryAdapter(val countryList:ArrayList<Country>) :
         holder.view.imageView.downloadFromUrl(countryList[position].imageUrl, placeholderProgressBar(holder.view.context))
 
         holder.view.setOnClickListener{
-            val action = FeedFragmentDirections.actionFeedFragmentToCountryFragment()
+            val action = FeedFragmentDirections.actionFeedFragmentToCountryFragment(countryList[position].uuid)
+            //action.countryUUID
+
             Navigation.findNavController(it).navigate(action)
         }
 
