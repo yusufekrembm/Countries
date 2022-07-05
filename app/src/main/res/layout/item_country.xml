@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android">
-<LinearLayout
+
+<data>
+    <variable
+        name="country"
+        type="com.yusufekrem.countries.model.Country" />
+    <variable
+        name="listener"
+        type="com.yusufekrem.countries.adapter.CountryClickListener" />
+</data>
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+        android:onClick="@{listener::onCountryClicked}">
 
     <ImageView
         android:id="@+id/imageView"
@@ -12,7 +22,7 @@
         android:layout_height="match_parent"
         android:layout_weight="4"
         android:padding="3dp"
-        android:src="@mipmap/ic_launcher_round">
+        android:downloadUrl="@{country.imageUrl}">
     </ImageView>
 
     <LinearLayout
@@ -27,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Name"
+            android:text="@{country.name}"
             android:textSize="20sp"
             android:textStyle="bold">
 
@@ -38,8 +48,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Region"
+            android:text="@{country.region}"
             android:textSize="16sp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/countryUuid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@{String.valueOf(country.uuid)}">
 
         </TextView>
 
